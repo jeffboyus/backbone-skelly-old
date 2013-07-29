@@ -1,0 +1,39 @@
+/****************************************************************************
+This SCSS file will only auto-compile if the outputted CSS does not exist.
+
+If you want live reload capability use the following command line statement:
+
+	sass --watch path/filename.scss:path/filename.css
+
+	(This assumes you have sass installed)
+
+You could also download the following applications that will live reload this
+on the fly after every save:
+	- LiveReload
+	- CodeKit
+****************************************************************************/
+
+@import "includes/_brand_colors.scss";
+
+$margin: 10px;
+
+body {
+	background-color: $silver;
+}
+
+main {
+	padding: $margin *4;
+}
+
+section {
+	display: none;
+	position: relative;
+	width: 300px;
+	margin: $margin;
+	padding: $margin *2;
+	background-color: $copper;
+
+	&.current {
+		display: block;
+	}
+}

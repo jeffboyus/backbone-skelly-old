@@ -1,0 +1,29 @@
+/****************************************************************************
+This SCSS file will only auto-compile if the outputted CSS does not exist.
+
+If you want live reload capability use the following command line statement:
+
+	sass --watch path/filename.scss:path/filename.css
+
+	(This assumes you have sass installed)
+
+You could also download the following applications that will live reload this
+on the fly after every save:
+	- LiveReload
+	- CodeKit
+****************************************************************************/
+body {
+  background-color: #707276; }
+
+main {
+  padding: 40px; }
+
+section {
+  display: none;
+  position: relative;
+  width: 300px;
+  margin: 10px;
+  padding: 20px;
+  background-color: #d57500; }
+  section.current {
+    display: block; }

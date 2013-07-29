@@ -1,0 +1,35 @@
+{
+  "name": "pnnl",
+  "version": "0.0.1",
+  "description": "Sample backbone single-page-app skeleton",
+  "dependencies": {
+    "express": "3.0.4",
+    "jade": "0.27.7",
+    "async": "0.2.6",
+    "underscore": "1.4.4",
+    "uglify-js": "2.3.6",
+    "gzippo": "0.1.4",
+    "precommit-hook": "",
+    "templatizer": ">=0.0.9",
+    "getconfig": "",
+    "semi-static": "0.0.3",
+    "express-stitch": "",
+    "clientmodules": "0.0.4",
+    "backbone": "1.0.0",
+    "request": "",
+    "ncp": "0.4.2",
+    "rimraf": "2.1.4",
+    "node-sass": "0.5.4"
+  },
+  "clientmodules": ["async", "backbone", "underscore"],
+  "scripts": {
+    "postinstall": "node node_modules/clientmodules/install.js"
+  },
+  "config": {
+    "precommit": {
+      "lint": false,
+      "validate": false
+    }
+  },
+  "main": "server.js"
+}
