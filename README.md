@@ -13,11 +13,18 @@
 
 ## How it's structured
 
-1. All the JS is now served up as a single file. You can see it by going to http://localhost:3000/app.js
-2. Any code you change in "clientapp" or "clientmodules" folders will be included in that file as long as you are running the server you started in step 4 above.
+1. All the JS is now served up as a single file. You can see it by going to `http://localhost:3000/app.%7B%7Bversion%7D%7D.js`
+2. Any code you change in `clientapp` or `clientmodules` folders will be included in that file as long as you are running the server you started in step 4 above.
 
 ```
-Note: When committing your application to git, a script called JS Hint will run and require some linting procedures.  This will validate your code against some coding standards. These standards can be changed in the .jshintrc file.  You can also add files/folders to the .jshintignore file to remove them from the linting process. To disable this linting process, visit the package.json file and change the boolean value for linting on pre-commit.
+Note: 
+
+When committing your application to git, a script called JS Hint will run and 
+require some linting procedures.  This will validate your code against some coding 
+standards. These standards can be changed in the .jshintrc file.  You can also add 
+files/folders to the .jshintignore file to remove them from the linting process. 
+To disable this linting process, visit the package.json file and change the boolean 
+value for linting on pre-commit.
 ```
 
 ## Need Git help?

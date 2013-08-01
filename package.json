@@ -13,10 +13,10 @@
     }
   ],
   "description": "PNNL APPLICATION DESCRIPTION GOES HERE. Do a 'npm i' command from your project directory after cloning/pulling this repo.",
-  "homepage": "https://git.pnnl.gov/FINISH_LINK_TO_README_FILE_IN_GIT",
+  "homepage": "https://git.pnnl.gov/Mobility/backbone-template",
   "repository": {
     "type": "git",
-    "url": "https://git.pnnl.gov/FINISH_LINK_TO_GIT_REPO"
+    "url": "https://git.pnnl.gov/Mobility/backbone-template"
   },
   "devDependencies": {
     "async": "0.2.6",
@@ -46,8 +46,7 @@
   "config": {
     "precommit": {
       "lint": true,
-      "validate": true,
-      "test": false
+      "validate": true
     }
   },
   "main": "server.js"
