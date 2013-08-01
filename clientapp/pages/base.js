@@ -3,7 +3,7 @@ var Backbone = require('backbone'),
 
 
 module.exports = Backbone.View.extend({
-	basicRender: function(context) {
+	basicRender: function (context) {
 		var currentEl = this.el;
         this.setElement(this.template(context || {}));
         $(currentEl).replaceWith(this.el);
@@ -49,7 +49,9 @@ module.exports = Backbone.View.extend({
                             el.removeClass(key);
                         }
                     } else {
-                        if (prev) el.removeClass(prev);
+                        if (prev) {
+                            el.removeClass(prev);
+                        }
                         el.addClass(newValue);
                     }
                 };

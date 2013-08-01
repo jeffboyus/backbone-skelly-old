@@ -1,5 +1,5 @@
 var Backbone = require('backbone'),
-    async = require('async'),
+    // async = require('async'),
     MeModel = require('models/me'),
     MainView = require('views/main'),
     AppRouter = require('APP_NAMERouter');
@@ -16,6 +16,7 @@ module.exports = {
         this.fetchStandardData(function (err) {
             if (err) {
                 // handle errors;
+                console.log(err);
             }
 
             app.view = new MainView({

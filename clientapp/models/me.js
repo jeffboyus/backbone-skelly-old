@@ -6,8 +6,8 @@ module.exports = Backbone.Model.extend({
     },
     initialize: function () {
         // change for your API
-        if(window.location.hostname === 'm.pnl.gov') {
-            this.set('apiRoute', 'https://m.pnl.gov/api')
+        if (window.location.hostname === 'm.pnl.gov') {
+            this.set('apiRoute', 'https://m.pnl.gov/api');
         }
 
         this.handleOrientationValueChange();
@@ -21,7 +21,7 @@ module.exports = Backbone.Model.extend({
         this.set('orientation', this.getWindowOrientation());
     },
     getWindowOrientation: function () {
-        if (window.orientation == 90 || window.orientation == -90) { 
+        if (window.orientation === 90 || window.orientation === -90) {
             return 'landscape';
         }
         return 'portrait';
