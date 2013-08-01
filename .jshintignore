@@ -1,1 +1,8 @@
+.sass-cache
+build
+build.js
+clientmodules
+public
 node_modules
+server.js
+stitch.js

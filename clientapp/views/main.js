@@ -1,13 +1,14 @@
-var _ = require('underscore'),
+var // _ = require('underscore'),
     Backbone = require('backbone'),
-    templates = require('templates'),
+    // templates = require('templates'),
     HomePageView = require('pages/home'),
     MenuPageView = require('pages/menu');
 
 
 module.exports = Backbone.View.extend({
     events: {
-        "click a": "clickLinkNavigation"
+        'click a.back': 'clickBackNavigation',
+        'click a.navigate': 'clickLinkNavigation'
     },
     render: function () {
         // Only need to attach the .render() if we want to render those pages on load
@@ -27,9 +28,13 @@ module.exports = Backbone.View.extend({
 
         return this;
     },
-    clickLinkNavigation: function (e){
+    clickBackNavigation: function (e) {
         e.preventDefault();
-        var route = $(e.target).attr('href');
+        app.router.back();
+    },
+    clickLinkNavigation: function (e) {
+        e.preventDefault();
+        var route = $(e.currentTarget).attr('href');
         app.router.navigate(route, {trigger: true});
     }
 });

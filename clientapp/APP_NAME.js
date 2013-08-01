@@ -2,7 +2,7 @@ var Backbone = require('backbone'),
     async = require('async'),
     MeModel = require('models/me'),
     MainView = require('views/main'),
-    AppRouter = require('connectRouter');
+    AppRouter = require('APP_NAMERouter');
 
 
 module.exports = {

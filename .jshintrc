@@ -1,15 +1,46 @@
 {
-    "asi": false,
-    "expr": true,
-    "loopfunc": true,
-    "curly": false,
-    "evil": true,
-    "white": true,
-    "undef": true,
-    "browser": true,
-    "es5": true,
+    "maxerr"        : 50,       // {int} Maximum error before stopping
+
+    // Enforcing
+    "bitwise"       : true,     // true: Prohibit bitwise operators (&, |, ^, etc.)
+    "camelcase"     : true,     // true: Identifiers must be in camelCase
+    "curly"         : true,     // true: Require {} for every new block or scope
+    "eqeqeq"        : true,     // true: Require triple equals (===) for comparison
+    "indent"        : 4,        // {int} Number of spaces to use for indentation
+    "newcap"        : true,     // true: Require capitalization of all constructor functions e.g. `new F()`
+    "noempty"       : true,     // true: Prohibit use of empty blocks
+    "plusplus"      : false,    // true: Prohibit use of `++` & `--`
+    "quotmark"      : true,     // Quotation mark consistency:
+                                //   false    : do nothing (default)
+                                //   true     : ensure whatever is used is consistent
+                                //   "single" : require single quotes
+                                //   "double" : require double quotes
+    "undef"         : true,     // true: Require all non-global variables to be declared (prevents global leaks)
+    "unused"        : true,     // true: Require all defined variables be used
+    "strict"        : false,    // true: Requires all functions run in ES5 Strict Mode
+    "trailing"      : true,     // true: Prohibit trailing whitespaces
+    "maxparams"     : false,    // {int} Max number of formal params allowed per function
+    "maxdepth"      : false,    // {int} Max depth of nested blocks (within functions)
+    "maxstatements" : false,    // {int} Max number statements per function
+    "maxcomplexity" : false,    // {int} Max cyclomatic complexity per function
+    "maxlen"        : false,    // {int} Max number of characters per line
+
+    // Relaxing
+    "asi"           : false,    // true: Tolerate Automatic Semicolon Insertion (no semicolons)
+    "boss"          : false,    // true: Tolerate assignments where comparisons would be expected
+    "evil"          : true,     // true: Tolerate use of `eval` and `new Function()`
+    "expr"          : true,     // true: Tolerate `ExpressionStatement` as Programs
+    "loopfunc"      : true,     // true: Tolerate functions being defined in loops
+    
+    // Environments
+    "browser"       : true,     // Web Browser (window, document, etc)
+
+    // Legacy
+    "white"         : true,     // true: Check against strict whitespace and indentation rules
+
     "predef": [
         "app",
+        "me",
         "$",
         "FormBot",
         "socket",
@@ -24,3 +55,5 @@
         "module"
     ]
 }
+
+// More at: https://github.com/jshint/jshint/blob/master/examples/.jshintrc

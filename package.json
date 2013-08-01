@@ -1,25 +1,43 @@
 {
-  "name": "pnnl",
+  "name": "PNNL APPLICATION NAME GOES HERE",
   "version": "0.0.1",
-  "description": "Sample backbone single-page-app skeleton",
-  "dependencies": {
-    "express": "3.0.4",
-    "jade": "0.27.7",
+  "author": "PNNL IM Services",
+  "contributors": [
+    {
+      "name": "First Last",
+      "email": "someone@pnnl.gov"
+    },
+    {
+      "name": "First Last",
+      "email": "someone@pnnl.gov"
+    }
+  ],
+  "description": "PNNL APPLICATION DESCRIPTION GOES HERE. Do a 'npm i' command from your project directory after cloning/pulling this repo.",
+  "homepage": "https://git.pnnl.gov/FINISH_LINK_TO_README_FILE_IN_GIT",
+  "repository": {
+    "type": "git",
+    "url": "https://git.pnnl.gov/FINISH_LINK_TO_GIT_REPO"
+  },
+  "devDependencies": {
     "async": "0.2.6",
-    "underscore": "1.4.4",
-    "uglify-js": "2.3.6",
-    "gzippo": "0.1.4",
-    "precommit-hook": "",
-    "templatizer": ">=0.0.9",
-    "getconfig": "",
-    "semi-static": "0.0.3",
-    "express-stitch": "",
-    "clientmodules": "0.0.4",
     "backbone": "1.0.0",
-    "request": "",
+    "clientmodules": "0.0.4",
+    "colors": "0.6.1",
+    "express": "3.0.4",
+    "express-stitch": "",
+    "getconfig": "",
+    "gzippo": "0.1.4",
+    "jade": "0.31.2",
+    "jshint": "~2.1.4",
     "ncp": "0.4.2",
+    "node-sass": "0.5.4",
+    "precommit-hook": "0.3.4",
+    "request": "",
     "rimraf": "2.1.4",
-    "node-sass": "0.5.4"
+    "semi-static": "0.0.3",
+    "templatizer": ">=0.0.9",
+    "uglify-js": "2.3.6",
+    "underscore": "1.4.4"
   },
   "clientmodules": ["async", "backbone", "underscore"],
   "scripts": {
@@ -27,8 +45,9 @@
   },
   "config": {
     "precommit": {
-      "lint": false,
-      "validate": false
+      "lint": true,
+      "validate": false,
+      "test": false
     }
   },
   "main": "server.js"
