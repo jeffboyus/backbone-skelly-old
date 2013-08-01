@@ -46,7 +46,7 @@
   "config": {
     "precommit": {
       "lint": true,
-      "validate": false,
+      "validate": true,
       "test": false
     }
   },
