@@ -1,0 +1,7 @@
+li.person
+  img.avatar(width="40", height="40", src=person.avatar(40))
+  span.name= person.fullName()
+  span 
+    a.view(href= person.appUrl()) view
+    | 
+    a.delete delete

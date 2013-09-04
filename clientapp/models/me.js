@@ -1,5 +1,5 @@
-var // _ = require('underscore'),
-    Backbone = require('backbone');
+var Backbone = require('backbone');
+
 
 module.exports = Backbone.Model.extend({
     defaults: {
@@ -9,21 +9,5 @@ module.exports = Backbone.Model.extend({
         if (window.location.hostname === 'm.pnl.gov') {
             this.set('apiRoute', 'https://m.pnl.gov/api');
         }
-
-        this.handleOrientationValueChange();
-        window.addEventListener('orientationchange', function () {
-            me.handleOrientationValueChange();
-        });
-
-        window.FastClick.attach(document.body);
-    },
-    handleOrientationValueChange: function () {
-        this.set('orientation', this.getWindowOrientation());
-    },
-    getWindowOrientation: function () {
-        if (window.orientation === 90 || window.orientation === -90) {
-            return 'landscape';
-        }
-        return 'portrait';
     }
 });

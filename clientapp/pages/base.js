@@ -1,74 +1,41 @@
-var Backbone = require('backbone'),
-    _ = require('underscore');
+var _ = require('underscore');
+var HumanView = require('human-view');
 
 
-module.exports = Backbone.View.extend({
-	basicRender: function (context) {
-		var currentEl = this.el;
-        this.setElement(this.template(context || {}));
-        $(currentEl).replaceWith(this.el);
-        this.handleBindings();
-	},
-    show: function () {
-        $('section').removeClass('current');
-        $(this.el).addClass('current');
+module.exports = HumanView.extend({
+	show: function () {
+        var title = _.result(this, 'title');
+
+        // scroll page to top
+        $('body').scrollTop(0);
+
+        // call render
+        this.render();
+
+        // set the class so it comes into view
+        this.$el.addClass('active');
+
+        // set the document title
+        document.title = title ? title + ' • PNNL' : 'PNNL';
+
+        // trigger an event to the page model in case we want to respond
+        this.trigger('pageloaded');
+
+        return this;
     },
-    handleBindings: function () {
-        var self = this;
-        if (this.contentBindings) {
-            _.each(this.contentBindings, function (selector, key) {
-                var func = function () {
-                    var el = (selector.length > 0) ? self.$(selector) : $(self.el);
-                    el.html(self.model.get(key));
-                };
-                self.listenTo(self.model, 'change:' + key, func);
-                func();
-            });
-        }
-        if (this.imageBindings) {
-            _.each(this.imageBindings, function (selector, key) {
-                var func = function () {
-                    var el = (selector.length > 0) ? self.$(selector) : $(self.el);
-                    el.attr('src', self.model.get(key));
-                };
-                self.listenTo(self.model, 'change:' + key, func);
-                func();
-            });
-        }
-        if (this.classBindings) {
-            _.each(this.classBindings, function (selector, key) {
-                var func = function () {
-                    var newValue = self.model.get(key),
-                        prev = self.model.previous(key),
-                        el = (selector.length > 0) ? self.$(selector) : $(self.el);
-                        
-                    if (_.isBoolean(newValue)) {
-                        if (newValue) {
-                            el.addClass(key);
-                        } else {
-                            el.removeClass(key);
-                        }
-                    } else {
-                        if (prev) {
-                            el.removeClass(prev);
-                        }
-                        el.addClass(newValue);
-                    }
-                };
-                self.listenTo(self.model, 'change:' + key, func);
-                func();
-            });
-        }
-        if (this.inputBindings) {
-            _.each(this.inputBindings, function (selector, key) {
-                var func = function () {
-                    var el = (selector.length > 0) ? self.$(selector) : $(self.el);
-                    el.val(self.model.get(key));
-                };
-                self.listenTo(self.model, 'change:' + key, func);
-                func();
-            });
-        }
+    hide: function () {
+        // remove the headerClass
+        $('header').removeClass(_.result(this, 'headerClass'));
+
+        // hide the page
+        this.$el.removeClass('active');
+
+        // tell the model we're bailing
+        this.trigger('pageunloaded');
+
+        // unbind all events bound for this view
+        this.animateRemove();
+
         return this;
     }
 });

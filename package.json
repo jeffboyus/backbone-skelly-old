@@ -21,27 +21,22 @@
   "devDependencies": {
     "async": "0.2.6",
     "backbone": "1.0.0",
-    "clientmodules": "0.0.4",
     "colors": "0.6.1",
     "express": "3.0.4",
-    "express-stitch": "",
-    "getconfig": "",
     "gzippo": "0.1.4",
     "jade": "0.31.2",
     "jshint": "~2.1.4",
     "ncp": "0.4.2",
     "node-sass": "0.5.4",
     "precommit-hook": "0.3.4",
-    "request": "",
     "rimraf": "2.1.4",
     "semi-static": "0.0.3",
     "templatizer": ">=0.0.9",
     "uglify-js": "2.3.6",
-    "underscore": "1.4.4"
-  },
-  "clientmodules": ["async", "backbone", "underscore"],
-  "scripts": {
-    "postinstall": "node node_modules/clientmodules/install.js"
+    "underscore": "1.5.1",
+    "moonboots": "0.5.0",
+    "human-view": "1.1.2",
+    "dummy-api": "0.0.1"
   },
   "config": {
     "precommit": {
