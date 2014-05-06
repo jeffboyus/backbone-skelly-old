@@ -1,0 +1,811 @@
+/**********************************************************************
+	PNNL Mobile App CSS
+	Author: Geoff Elliott (July 22, 2013)
+	Converted to SCSS: Jeff Boyus (July 30, 2013)
+**********************************************************************/
+
+@import "_brand_colors.scss";
+@import "_animations.scss";
+
+/***** Basic App Styles *****/
+
+@font-face {
+	font-family: 'PNNL';
+	src: url('./pnnl-icon.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+body {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-touch-callout: none;
+}
+
+a {
+	color: $copper;
+	text-decoration: none;
+}
+
+a:active {
+	background-color: #f2f3f5;
+}
+
+#pnnl_app, section {
+	-webkit-text-size-adjust: none;
+	-webkit-user-select: none;
+	user-select: none;
+	font-family: "Avenir-Medium", "Avenir LT Std", sans-serif;
+	color: $onyx;
+	position: absolute;
+	right: 0;
+	top: 0;
+	left: 0;
+	bottom: 0;
+}
+
+.standalone {
+	background-color: $silver;
+
+	#pnnl_app {
+		top: 20px;
+	}
+}
+
+section {
+	background-color: #EEE;
+	display: none; // Sections are revealed as the user navigates to them.  Until then we hide them.
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+
+	&.current {
+		display: block; // Home is the first screen shown to the user, always
+	}
+}
+
+header, footer {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	background-color: rgba(247,247,247,0.95);
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 100;
+}
+
+header {
+	top: 0;
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+	height: 44px;
+
+	> * {
+		line-height: 17px;
+		font-size: 17px;
+		padding: 13px 9px;
+	}
+
+	h1 {
+		text-align: center;
+		font-weight: normal;
+		font-family: "Avenir-Medium", "Avenir LT Std", sans-serif;
+
+		+ a {
+			left: auto;
+			right: 0;
+		}
+	}
+
+	a {
+		position: absolute;
+		left: 0;
+		top: 0;
+		font-weight: normal;
+		font-family: "Avenir-Light", "Avenir LT Std", sans-serif;
+
+		strong {
+			font-weight: normal;
+			font-family: "Avenir-Medium", "Avenir LT Std", sans-serif;
+		}
+
+		&.back {
+			padding-left: 24px;
+
+			&:before {
+				font-family: PNNL;
+				content: "\e609";
+				position: absolute;
+				left: 2px;
+				font-size: 24px;
+			}
+		}
+	}
+
+	a:active {
+		background-color: transparent;
+		opacity: 0.5;
+	}
+
+	+ .banner {
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		background-color: rgba(247,247,247,0.95);
+		position: absolute;
+		top: 44px;
+		left: 0;
+		right: 0;
+		z-index: 100;
+		border-bottom: 1px solid rgba(0,0,0,0.15);
+		padding: 12px 15px;
+	}
+}
+
+#search {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+
+	header {
+		padding: 7px 9px;
+	}
+
+  	header:before {
+		content: "\e604";
+		font-family: PNNL;
+		position: absolute;
+		font-size: 16px;
+		line-height: 16px;
+		color: $silver;
+		left: 15px;
+		// right: 70px;
+		top: 50%;
+		margin-top: -9px;
+		z-index: 100;
+	}
+
+	input {
+		-webkit-box-sizing: border-box;
+		-webkit-appearance: none;
+		background-color: #e2e3e5;
+		color: $onyx;
+		box-sizing: border-box;
+		padding: 5px 25px 5px 22px;
+		width: 100%;
+		// position: absolute;
+		// top: 7px;
+		// left: 9px;
+		// right: 9px;
+		border: none;
+		border-radius: 4px;
+		font-size: 12px;
+	}
+
+	::-webkit-input-placeholder {
+		color: $silver;
+	}
+
+	::-webkit-search-cancel-button {
+		display: none;
+	}
+
+	#clear_search {
+		position: absolute;
+		z-index: 100;
+		right: 5px;
+		top: 50%;
+		left: auto;
+		margin-top: -20px;
+		overflow: hidden;
+		padding: 0;
+		height: 16px;
+		width: 16px;
+		padding: 10px;
+		display: none;
+	}
+
+	#clear_search:before {
+		display: block;
+		content: "\00D7";
+		height: 16px;
+		width: 16px;
+		color: #f2f3f5;
+		background-color: lighten($platinum, 5%);
+		font-family: Avenir-Medium, "Avenir LT Std", sans-serif;
+		text-align: center;
+		line-height: 16px;
+		font-size: 13px;
+		border-radius: 50%;
+		margin-bottom: 10px;
+	}
+
+	.scroll {
+
+		ul li.PERSON, ul li.DEPARTMENT, ul li.FACILITY , ul li.GROUP {
+			a {
+				line-height: 34px;
+
+				small {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.banner_tabs {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	border-radius: 4px;
+	overflow: hidden;
+	clear: both;
+
+	&.copper {
+		border: 1px solid $copper;
+		li {
+			border-color: $copper;
+		}
+		a {
+			color: $copper;
+		}
+	}
+	&.silver {
+		border: 1px solid $silver;
+		li {
+			border-color: $silver;
+		}
+		a {
+			color: $silver;
+		}
+	}
+	&.bronze {
+		border: 1px solid $bronze;
+		li {
+			border-color: $bronze;
+		}
+		a {
+			color: $bronze;
+		}
+	}
+	&.gold {
+		border: 1px solid $gold;
+		li {
+			border-color: $gold;
+		}
+		a {
+			color: $gold;
+		}
+	}
+	&.onyx {
+		border: 1px solid $onyx;
+		li {
+			border-color: $onyx;
+		}
+		a {
+			color: $onyx;
+		}
+	}
+	&.platinum {
+		border: 1px solid $platinum;
+		li {
+			border-color: $platinum;
+		}
+		a {
+			color: $platinum;
+		}
+	}
+	&.emerald {
+		border: 1px solid $emerald;
+		li {
+			border-color: $emerald
+		}
+		a {
+			color: $emerald;
+		}
+	}
+	&.sapphire {
+		border: 1px solid $sapphire;
+		li {
+			border-color: $sapphire;
+		}
+		a {
+			color: $sapphire;
+		}
+	}
+	&.ruby {
+		border: 1px solid $ruby;
+		li {
+			border-color: $ruby;
+		}
+		a {
+			color: $ruby;
+		}
+	}
+	&.topaz {
+		border: 1px solid $topaz;
+		li {
+			border-color: $topaz;
+		}
+		a {
+			color: $topaz;
+		}
+	}
+	&.mercury {
+		border: 1px solid $mercury;
+		li {
+			border-color: $mercury;
+		}
+		a {
+			color: $mercury;
+		}
+	}
+	&.amethyst {
+		border: 1px solid $amethyst;
+		li {
+			border-color: $amethyst;
+		}
+		a {
+			color: $amethyst;
+		}
+	}
+	&.garnet {
+		border: 1px solid $garnet;
+		li {
+			border-color: $garnet;
+		}
+		a {
+			color: $garnet;
+		}
+	}
+	&.emsl {
+		border: 1px solid $emsl;
+		li {
+			border-color: $emsl;
+		}
+		a {
+			color: $emsl;
+		}
+	}
+
+	li {
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		float: left;
+		list-style: none;
+		width: 33%;
+		text-align: center;
+		font-size: 13px;
+
+		a {
+			display: block;
+			padding: 5px;
+		}
+	}
+
+	li:last-child {
+		float: none;
+		width: auto;
+		margin-left: 66%;
+	}
+
+	li + li {
+		border-left: 1px solid;
+	}
+}
+
+.banner_tabs.copper li.selected a {
+	background-color: $copper;
+	color: white;
+}
+.banner_tabs.silver li.selected a {
+	background-color: $silver;
+	color: white;
+}
+.banner_tabs.bronze li.selected a {
+	background-color: $bronze;
+	color: white;
+}
+.banner_tabs.gold li.selected a {
+	background-color: $gold;
+	color: white;
+}
+.banner_tabs.onyx li.selected a {
+	background-color: $onyx;
+	color: white;
+}
+.banner_tabs.platinum li.selected a {
+	background-color: $platinum;
+	color: white;
+}
+.banner_tabs.emerald li.selected a {
+	background-color: $emerald;
+	color: white;
+}
+.banner_tabs.sapphire li.selected a {
+	background-color: $sapphire;
+	color: white;
+}
+.banner_tabs.ruby li.selected a {
+	background-color: $ruby;
+	color: white;
+}
+.banner_tabs.topaz li.selected a {
+	background-color: $topaz;
+	color: white;
+}
+.banner_tabs.mercury li.selected a {
+	background-color: $mercury;
+	color: white;
+}
+.banner_tabs.amethyst li.selected a {
+	background-color: $amethyst;
+	color: white;
+}
+.banner_tabs.garnet li.selected a {
+	background-color: $garnet;
+	color: white;
+}
+.banner_tabs.emsl li.selected a {
+	background-color: $emsl;
+	color: white;
+}
+
+.scroll {
+	-webkit-margin-collapse: separate;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+	padding-top: 44px;
+	padding-bottom: 48px; // For some reason this only works when the Web Inspector is open...
+
+	h2 {
+		font-size: 14px;
+		font-weight: normal;
+		color: #4f4f4f;
+		line-height: 30px;
+		padding-left: 15px;
+		text-transform: uppercase;
+	}
+
+	h3 {
+		text-transform: uppercase;
+		color: $silver;
+		font-size: 12px;
+		font-weight: normal;
+		font-family: "Avenir-Roman", "Avenir LT Std", sans-serif;
+		margin-bottom: 0;
+		margin-top: 10px;
+		padding-left: 15px;
+
+		& + ul {
+			margin-top: 5px;
+		}
+	}
+
+	ul {
+		padding: 0;
+		padding-left: 15px;
+		-webkit-margin-collapse: separate;
+
+		li {
+			list-style-type: none;
+			overflow: hidden;
+			position: relative;
+
+			+ li {
+				border-top: 1px solid #d9d9d9;
+			}
+
+			a {
+				text-decoration: none;
+				overflow: hidden;
+				display: block;
+				padding: 9px 30px 9px 50px;
+				font-size: 16px;
+				line-height: 18px;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+				small {
+					display: block;
+					color: $silver;
+					margin-top: 1px;
+					line-height: 15px;
+				}
+			}
+		}
+	}
+
+	& ul, & ul.individual li {
+		margin-top: 10px;
+		background-color: white;
+		color: $silver;
+		border-top: 1px solid #d9d9d9;
+		border-bottom: 1px solid #d9d9d9;
+	}
+
+	h2 + ul {
+		margin-top: 0;
+	}
+}
+
+li.arrow:after {
+	content: '\e03e';
+	color: #d9d9d9;
+	width: 22px;
+	/*  height: 100%;
+	vertical-align: middle;*/
+	line-height: 30px;
+	/*line-height: 38px;*/
+	font-size: 17px;
+	font-family: PNNL;
+	font-weight: normal;
+	position: absolute;
+	right: 5px;
+	top: 50%;
+	margin-top: -15px;
+	pointer-events: none;
+	z-index: 10;
+}
+
+.selection_view {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 300;
+	background-color: rgba(238,238,238,0.95);
+	display: none;
+
+	.scroll {
+		padding-top: 44px !important;
+		padding-bottom: 0 !important;
+
+		ul {
+			padding-left: 44px;
+		}
+
+		li {
+			position: relative;
+			overflow: visible;
+
+			a {
+				padding-left: 0;
+				padding-right: 50px;
+				color: $onyx;
+			}
+
+			a:active {
+				background-color: transparent;
+			}
+
+			&.selected:before {
+				content: "\e02b";
+				font-family: PNNL;
+				font-size: 14px;
+				position: absolute;
+				left: -29px;
+				top: 50%;
+				margin-top: -7px;
+				color: $copper;
+			}
+		}
+	}
+}
+
+.selecting {
+	footer {
+		-webkit-animation-delay: 100ms;
+		-webkit-animation-duration: 200ms;
+	  -webkit-animation-fill-mode: both;
+	  -webkit-animation-timing-function: ease-out;
+		// -webkit-animation-name: blurIn;
+	}
+
+	section.current {
+
+		> .scroll, > header, > .banner {
+			-webkit-animation-delay: 100ms;
+			-webkit-animation-duration: 200ms;
+		  -webkit-animation-fill-mode: both;
+		  -webkit-animation-timing-function: ease-out;
+			// -webkit-animation-name: blurIn;
+		}
+		.selection_view {
+			display: block;
+		  -webkit-animation-duration: 300ms;
+		  -webkit-animation-fill-mode: both;
+		  -webkit-animation-timing-function: ease-out;
+		  -webkit-animation-name: slideUpIn;
+		}
+	}
+}
+
+.selection_done {
+	footer {
+	  -webkit-animation-duration: 150ms;
+	  -webkit-animation-fill-mode: both;
+	  -webkit-animation-timing-function: ease-out;
+		// -webkit-animation-name: blurOut;
+	}
+
+	section.current {
+
+		> .scroll, > header, > .banner {
+		  -webkit-animation-duration: 200ms;
+		  -webkit-animation-fill-mode: both;
+		  -webkit-animation-timing-function: ease-out;
+			// -webkit-animation-name: blurOut;
+		}
+		.selection_view {
+			display: block;
+		  -webkit-animation-duration: 300ms;
+		  -webkit-animation-fill-mode: both;
+		  -webkit-animation-timing-function: ease-out;
+		  -webkit-animation-name: slideDownOut;
+		}
+	}
+}
+
+/***** OVERLAY *****/
+.overlay {
+	position: absolute;
+	/* Override these positions per screen if you want to allow access to the toolbar/footer during the overlay */
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	background-color: rgba(0,0,0,0.4);
+
+	.overlay_message {
+		background-color: rgba(220,220,220,1);
+		width: 70px;
+		height: 70px;
+		border-radius: 10px;
+		padding: 20px 20px 15px;
+		text-align: center;
+		font-size: 14px;
+		color: #242424;
+		/* Center position */
+		position: absolute;
+		top: 40%;
+		left: 50%;
+		margin-left: -55px;
+		margin-top: -55px;
+
+		strong {
+			font-family: "Avenir-Medium", "Avenir LT Std";
+			font-weight: normal;
+			position: relative;
+			top: 5px;
+		}
+	}
+}
+
+.spinner {
+	position: relative;
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+
+	div {
+		width: 12%;
+		height: 26%;
+		background: #242424;
+		position: absolute;
+		left: 44.5%;
+		top: 37%;
+		opacity: 0;
+		-webkit-animation: fade 1s linear infinite;
+		-webkit-border-radius: 10px;
+		/*-webkit-box-shadow: 0 0 3px rgba(0,0,0,0.2);*/
+
+		&.bar1 {-webkit-transform:rotate(0deg) translate(0, -142%); -webkit-animation-delay: 0s;}
+		&.bar2 {-webkit-transform:rotate(30deg) translate(0, -142%); -webkit-animation-delay: -0.9167s;}
+		&.bar3 {-webkit-transform:rotate(60deg) translate(0, -142%); -webkit-animation-delay: -0.833s;}
+		&.bar4 {-webkit-transform:rotate(90deg) translate(0, -142%); -webkit-animation-delay: -0.75s;}
+		&.bar5 {-webkit-transform:rotate(120deg) translate(0, -142%); -webkit-animation-delay: -0.667s;}
+		&.bar6 {-webkit-transform:rotate(150deg) translate(0, -142%); -webkit-animation-delay: -0.5833s;}
+		&.bar7 {-webkit-transform:rotate(180deg) translate(0, -142%); -webkit-animation-delay: -0.5s;}
+		&.bar8 {-webkit-transform:rotate(210deg) translate(0, -142%); -webkit-animation-delay: -0.41667s;}
+		&.bar9 {-webkit-transform:rotate(240deg) translate(0, -142%); -webkit-animation-delay: -0.333s;}
+		&.bar10 {-webkit-transform:rotate(270deg) translate(0, -142%); -webkit-animation-delay: -0.25s;}
+		&.bar11 {-webkit-transform:rotate(300deg) translate(0, -142%); -webkit-animation-delay: -0.1667s;}
+		&.bar12 {-webkit-transform:rotate(330deg) translate(0, -142%); -webkit-animation-delay: -0.0833s;}
+	}
+}
+
+@-webkit-keyframes fade {
+	from {opacity: 1;}
+	to {opacity: 0.25;}
+}
+
+/***** FOOTER *****/
+
+footer {
+	bottom: 0;
+	border-top: 1px solid rgba(0,0,0,0.15);
+	height: 48px;
+	font-size: 10px;
+
+	&.tabs ul {
+		max-width: 320px;
+		margin: auto;
+
+		li {
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			float: left;
+			width: 20%;
+			text-align: center;
+			list-style: none;
+			overflow: hidden;
+
+			a {
+				color: $platinum;
+				display: block;
+
+				&:before {
+					font-family: PNNL;
+					font-size: 32px;
+					line-height: 32px;
+					// color: $platinum;
+					display: block;
+					position: relative;
+					top: 1px;
+					// -webkit-text-stroke-width: 1px;
+					// -webkit-text-stroke-color: $silver;
+				}
+			}
+
+			a:active {
+				background-color: transparent;
+			}
+
+			&.selected a {
+				color: $copper;
+
+				&:before {
+					color: $copper;
+					// -webkit-text-stroke-width: 0;
+				}
+			}
+		}
+	}
+}
+
+/* Tablet CSS - portrait orientation */
+@media only screen and (min-width: 768px) and (max-width: 994px) {
+
+	/* Fix highlight for iPad portrait */
+	.banner_tabs li:last-child {
+		margin-left: 65.7%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

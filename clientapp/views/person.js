@@ -4,9 +4,9 @@ var templates = require('../templates');
 
 module.exports = HumanView.extend({
     template: templates.includes.person,
-    srcBindings: {
-        'avatar': '.avatar'
-    },
+    // srcBindings: {
+    //     'avatar': '.avatar'
+    // },
     events: {
         'click .delete': 'handleRemoveClick'
     },
