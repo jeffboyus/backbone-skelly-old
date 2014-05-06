@@ -1,5 +1,7 @@
 var HumanModel = require('human-model');
 
+// enable strict mode
+'use strict';
 
 module.exports = HumanModel.define({
 	seal: true,

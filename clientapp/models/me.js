@@ -1,6 +1,7 @@
 var HumanModel = require('human-model'); // Human Model Docs: https://www.npmjs.org/package/human-model
 
-
+// enable strict mode
+'use strict';
 
 module.exports  = HumanModel.define({
 	// Strict mode in JS is pretty great and is fairly well supported in modern browsers.
