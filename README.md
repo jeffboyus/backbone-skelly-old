@@ -1,7 +1,7 @@
 # Mobile Backbone Template
 The assembly of this template is the method for which we make mobile HTML5 apps at PNNL. This application structure was developed by a local company called [&amp;yet](http://andyet.net "&amp;yet"). It was based of a project that they dubbed ["Human Javascript"](http://docs.humanjavascript.com/ "Human JavaScript").  It's highly recommend that you take some time and read through their introduction to the "framework" they have given the community.  Also, the book that they wrote to go along with this is highly recommended reading as well.  It will give you an insight as to why they made this and why you should use it... today.
 
-Basically, this is a framework for creating single-page JavaScript applications using a variety of frameworks assembled in an intuitive fashion. If you really want to know why you would consider doing this, then take a look at the book that was mentioned above. By no means is this everything you would need to make a mobile, or any, application.  But, it is a great start to a functional application right out of the gate.
+Basically, this is a "framework" for creating single-page JavaScript applications using a variety of other frameworks assembled in an intuitive fashion. If you really want to know why you would consider doing this, then take a look at the book that was mentioned above. By no means is this everything you would need to make a mobile, or any, application.  But, it is a great start to a functional application right out of the gate.
 
 
 ## How to run
