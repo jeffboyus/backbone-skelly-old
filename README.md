@@ -3,6 +3,12 @@ The assembly of this template is the method for which we make mobile HTML5 apps 
 
 Basically, this is a "framework" for creating single-page JavaScript applications using a variety of other frameworks assembled in an intuitive fashion. If you really want to know why you would consider doing this, then take a look at the book that was mentioned above. By no means is this everything you would need to make a mobile, or any, application.  But, it is a great start to a functional application right out of the gate.
 
+```
+Want to use this as a framework to create a regular old desktop browser app?
+
+In its current form, it will only work on modern browsers and IE9+. Basically this boils down to ES5 support.  Sorry.  It is what it is.
+```
+
 
 ## How to run
 
